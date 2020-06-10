@@ -24,10 +24,16 @@ $(function () {
 
     count.text(stepsCount);
 
-    $(".checkbox__input").click(function (e) {
+    $(".timeline-control__view .checkbox__input").click(function (e) {
       e.target.checked
         ? that.attr("data-view", "line")
         : that.attr("data-view", "point");
+    });
+
+    $(".timeline-control__position .checkbox__input").click(function (e) {
+      e.target.checked
+        ? that.attr("data-text-position", "up")
+        : that.attr("data-text-position", "down");
     });
 
     $(".timeline-control__btn").click(function (e) {
