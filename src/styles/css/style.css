@@ -313,7 +313,7 @@ body {
   position: relative;
   margin-bottom: 50px; }
   .timeline li {
-    height: 5px;
+    height: 3px;
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
@@ -333,10 +333,11 @@ body {
     .timeline li:after {
       content: '';
       display: block;
-      width: 10px;
-      height: 10px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background: #4ea31e;
+      border: 1.5px solid #fff;
       position: absolute;
       z-index: 10;
       left: 0;
@@ -347,10 +348,10 @@ body {
   .timeline:after {
     content: '';
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background: green;
+    background: #4ea31e;
     position: absolute;
     z-index: 10;
     right: 0;
@@ -361,34 +362,52 @@ body {
   .timeline[data-text-position="down"] li:before {
     bottom: -30px; }
   .timeline[data-progress="start"] li {
-    background: grey; }
+    background: #e5e5e5; }
     .timeline[data-progress="start"] li:after {
-      background: white;
-      border: 1px solid grey; }
+      background: -o-radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+      background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+      width: 18px;
+      height: 18px; }
     .timeline[data-progress="start"] li.timeline__progress {
-      background: grey; }
+      background: #e5e5e5; }
       .timeline[data-progress="start"] li.timeline__progress:after {
-        background: white; }
+        background: -o-radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+        background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+        width: 18px;
+        height: 18px;
+        border: 1.5px solid #fff; }
       .timeline[data-progress="start"] li.timeline__progress ~ li {
-        background: grey; }
+        background: #e5e5e5; }
       .timeline[data-progress="start"] li.timeline__progress ~ li:after {
-        background: white;
-        border: none; }
+        background: -o-radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+        background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+        width: 18px;
+        height: 18px;
+        border: 1.5px solid #fff; }
   .timeline[data-progress="start"]:after {
-    background: white;
-    border: 1px solid grey; }
+    background: -o-radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+    background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #fff; }
   .timeline[data-progress="progress"] li.timeline__progress {
-    background: orange; }
+    background: #f49530; }
     .timeline[data-progress="progress"] li.timeline__progress:after {
-      background: orange; }
+      background: #f49530; }
     .timeline[data-progress="progress"] li.timeline__progress ~ li {
-      background: grey; }
+      background: #e5e5e5; }
       .timeline[data-progress="progress"] li.timeline__progress ~ li:after {
-        background: white;
-        border: 1px solid grey; }
+        background: -o-radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+        background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+        width: 18px;
+        height: 18px;
+        border: 1.5px solid #fff; }
   .timeline[data-progress="progress"]:after {
-    background: white;
-    border: 1px solid grey; }
+    background: -o-radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+    background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #fff; }
   .timeline[data-view="point"]:after {
     display: none; }
   .timeline[data-view="point"] li:before {
@@ -407,10 +426,12 @@ body {
       -ms-transform: translateX(-100%);
       transform: translateX(-100%); }
   .timeline[data-view="point"][data-progress="start"] li:last-child:after {
-    background: white;
-    border: 1px solid grey; }
+    background: -o-radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+    background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5);
+    width: 18px;
+    height: 18px; }
   .timeline[data-view="point"][data-progress="progress"] li.timeline__progress {
-    background: grey; }
+    background: #e5e5e5; }
   .timeline-control {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -443,10 +464,10 @@ body {
       -ms-flex-pack: center;
       justify-content: center;
       border-radius: 50%;
-      border: 1px solid lightgrey;
+      border: 1.5px solid #e5e5e5;
       -ms-flex-negative: 0;
       flex-shrink: 0;
-      color: lightgrey;
+      color: #e5e5e5;
       font-size: 20px;
       cursor: pointer; }
     .timeline-control__count {

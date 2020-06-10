@@ -1,3 +1,9 @@
+=grey-point
+  background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5)
+  width: 18px
+  height: 18px
+  border: 1.5px solid #fff
+
 .timeline
   counter-reset: timeline
   height: 80px
@@ -8,7 +14,7 @@
   margin-bottom: 50px
   
   li
-    height: 5px
+    height: 3px
     flex-grow: 1
     background: #4ea31e
     position: relative    
@@ -24,10 +30,11 @@
     &:after
       content: ''
       display: block
-      width: 10px
-      height: 10px
+      width: 16px
+      height: 16px
       border-radius: 50%
       background: #4ea31e
+      border: 1.5px solid #fff
       position: absolute
       z-index: 10
       left: 0
@@ -37,10 +44,10 @@
   &:after
     content: ''
     display: block
-    width: 10px
-    height: 10px
+    width: 16px
+    height: 16px
     border-radius: 50%
-    background: green
+    background: #4ea31e
     position: absolute
     z-index: 10
     right: 0
@@ -55,37 +62,34 @@
 
   &[data-progress="start"]
     li
-      background: grey
+      background: #e5e5e5
       &:after
-        background: white
-        border: 1px solid grey
+        background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5)
+        width: 18px
+        height: 18px
       &.timeline__progress
-        background: grey
+        background: #e5e5e5
         &:after
-          background: white
+          +grey-point
         & ~ li
-          background: grey
+          background: #e5e5e5
         & ~ li:after
-          background: white
-          border: none
+          +grey-point
     &:after
-      background: white
-      border: 1px solid grey
+      +grey-point
   
   &[data-progress="progress"]
     li
       &.timeline__progress
-        background: orange
+        background: #f49530   
         &:after
-          background: orange 
+          background: #f49530    
         & ~ li
-          background: grey
+          background: #e5e5e5
           &:after
-            background: white
-            border: 1px solid grey
+            +grey-point
     &:after
-      background: white
-      border: 1px solid grey
+      +grey-point
   
   &[data-view="point"]
     &:after
@@ -103,12 +107,13 @@
           transform: translateX(-100%)
     &[data-progress="start"]
       li:last-child:after
-        background: white
-        border: 1px solid grey
+        background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5)
+        width: 18px
+        height: 18px
     &[data-progress="progress"]
       li
         &.timeline__progress
-          background: grey
+          background: #e5e5e5
 
 
   &-control
@@ -129,9 +134,9 @@
       align-items: center
       justify-content: center
       border-radius: 50%
-      border: 1px solid lightgrey
+      border: 1.5px solid #e5e5e5
       flex-shrink: 0
-      color: lightgrey
+      color: #e5e5e5
       font-size: 20px
       cursor: pointer
 
