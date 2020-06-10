@@ -1,0 +1,56 @@
+.checkbox
+  max-width: 100% //ie fix
+  display: inline-flex
+  align-items: center
+
+  & &__input
+    display: none
+
+  & &__icon
+    width: 50px
+    height: 25px
+    border: 1.5px solid lightgrey
+    border-radius: 10px
+    position: relative
+    z-index: 1
+    transition: all 0.2s
+    cursor: pointer
+    flex-shrink: 0
+    cursor: pointer
+    margin: 0 10px
+
+    &:after
+      content: ''
+      display: block
+      height: 18px
+      width: 18px
+      background: lightgrey
+      transition: all 0.2s
+      position: absolute
+      left: 2.5px
+      top: 50%
+      transform: translateY(-50%)
+      border-radius: 50%
+
+  & &__title
+    color: #424242
+    font-family: $main_font
+    font-size: 18px
+    font-weight: 400
+    line-height: 20px
+
+    a
+      color: #10a9ea
+      text-decoration: underline
+
+      &:hover
+        text-decoration: none
+
+  & &__input:checked + &__icon
+    &:after
+      //background: grey
+      left: 27px
+
+  & &__input:disabled + &__icon
+    opacity: 0.4
+    cursor: default
