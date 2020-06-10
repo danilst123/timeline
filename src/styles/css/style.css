@@ -319,7 +319,7 @@ body {
     position: relative; }
     .timeline li:before {
       counter-increment: timeline;
-      content: "step " counter(timeline);
+      content: "Step " counter(timeline);
       position: absolute;
       z-index: 1;
       bottom: 10px;
@@ -342,23 +342,13 @@ body {
       -webkit-transform: translateY(-50%) translateX(-50%);
       -ms-transform: translateY(-50%) translateX(-50%);
       transform: translateY(-50%) translateX(-50%); }
-    .timeline li.progress {
-      background: orange; }
-      .timeline li.progress::after {
-        background: orange; }
-      .timeline li.progress ~ li {
-        background: grey; }
-      .timeline li.progress ~ li:after {
-        background: white;
-        border: 1px solid grey; }
-  .timeline:after {
+  .timeline:after:not([data-view="point"]) {
     content: '';
     display: block;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: white;
-    border: 1px solid grey;
+    background: green;
     position: absolute;
     z-index: 10;
     right: 0;
@@ -366,3 +356,54 @@ body {
     -webkit-transform: translateY(-50%) translateX(50%);
     -ms-transform: translateY(-50%) translateX(50%);
     transform: translateY(-50%) translateX(50%); }
+  .timeline[data-text-position="down"] li:before {
+    bottom: -30px; }
+  .timeline[data-progress="start"] li {
+    background: grey; }
+    .timeline[data-progress="start"] li:after {
+      background: white;
+      border: 1px solid grey; }
+    .timeline[data-progress="start"] li.timeline__progress {
+      background: grey; }
+      .timeline[data-progress="start"] li.timeline__progress:after {
+        background: white; }
+      .timeline[data-progress="start"] li.timeline__progress ~ li {
+        background: grey; }
+      .timeline[data-progress="start"] li.timeline__progress ~ li:after {
+        background: white;
+        border: none; }
+  .timeline[data-progress="start"]:after {
+    background: white;
+    border: 1px solid grey; }
+  .timeline[data-progress="progress"] li.timeline__progress {
+    background: orange; }
+    .timeline[data-progress="progress"] li.timeline__progress:after {
+      background: orange; }
+    .timeline[data-progress="progress"] li.timeline__progress ~ li {
+      background: grey; }
+      .timeline[data-progress="progress"] li.timeline__progress ~ li:after {
+        background: white;
+        border: 1px solid grey; }
+  .timeline[data-progress="progress"]:after {
+    background: white;
+    border: 1px solid grey; }
+  .timeline[data-view="point"] li:before {
+    left: 0; }
+  .timeline[data-view="point"] li:first-child:before {
+    left: 0;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0); }
+  .timeline[data-view="point"] li:last-child {
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0; }
+    .timeline[data-view="point"] li:last-child:before {
+      -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      transform: translateX(-100%); }
+  .timeline[data-view="point"][data-progress="start"] li:last-child:after {
+    background: white;
+    border: 1px solid grey; }
+  .timeline[data-view="point"][data-progress="progress"] li.timeline__progress {
+    background: grey; }

@@ -9,7 +9,7 @@
       content="width=device-width, initial-scale=1, viewport-fit:contain"
     />
 
-    <title>Title</title>
+    <title>timeline</title>
 
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap&subset=cyrillic"
@@ -18,11 +18,22 @@
     <link href="../styles/css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <ol class="timeline">
+    <!-- 
+      data-atributes:
+        data-position - up(default)/down
+        data-progress - start/progress/complete(default)
+        data-view - point/line(default)
+    -->
+    <ol
+      class="timeline"
+      data-text-position="down"
+      data-progress="progress"
+      data-view="point"
+    >
+      <li></li>
+      <li class="timeline__progress"></li>
       <li></li>
       <li></li>
-      <li></li>
-      <li class="progress"></li>
     </ol>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
