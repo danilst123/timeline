@@ -1,0 +1,58 @@
+.timeline
+  counter-reset: timeline
+  width: 100%
+  display: flex
+  align-items: center
+  position: relative
+  li
+    height: 5px
+    flex-grow: 1
+    background: #4ea31e
+    position: relative
+    
+    &:before
+      counter-increment: timeline
+      content: "step " counter(timeline)
+      position: absolute
+      z-index: 1
+      bottom: 10px
+      left: 50%
+      transform: translateX(-50%)
+      white-space: nowrap
+    
+    &:after
+      content: ''
+      display: block
+      width: 10px
+      height: 10px
+      border-radius: 50%
+      background: #4ea31e
+      position: absolute
+      z-index: 10
+      left: 0
+      top: 50%
+      transform: translateY(-50%) translateX(-50%)
+
+    &.progress
+      background: orange
+      &::after
+        background: orange 
+      & ~ li
+        background: grey
+      & ~ li:after
+        background: white
+        border: 1px solid grey
+            
+  &:after
+    content: ''
+    display: block
+    width: 10px
+    height: 10px
+    border-radius: 50%
+    background: white
+    border: 1px solid grey
+    position: absolute
+    z-index: 10
+    right: 0
+    top: 50%
+    transform: translateY(-50%) translateX(50%)
