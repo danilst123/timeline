@@ -322,7 +322,7 @@ body {
       content: "Step " counter(timeline);
       position: absolute;
       z-index: 1;
-      bottom: 10px;
+      bottom: 15px;
       left: 50%;
       -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -342,7 +342,7 @@ body {
       -webkit-transform: translateY(-50%) translateX(-50%);
       -ms-transform: translateY(-50%) translateX(-50%);
       transform: translateY(-50%) translateX(-50%); }
-  .timeline:after:not([data-view="point"]) {
+  .timeline:after {
     content: '';
     display: block;
     width: 10px;
@@ -387,6 +387,8 @@ body {
   .timeline[data-progress="progress"]:after {
     background: white;
     border: 1px solid grey; }
+  .timeline[data-view="point"]:after {
+    display: none; }
   .timeline[data-view="point"] li:before {
     left: 0; }
   .timeline[data-view="point"] li:first-child:before {
