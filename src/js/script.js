@@ -20,8 +20,8 @@ $(function () {
       steps = that.find("li"),
       stepsCount = steps.length,
       count = $(".timeline-control__count"),
-      step = "<li></li>",
-      title = that.data("title");
+      title = that.data("title"),
+      step = "<li data-title='" + title + "'></li>";
 
     count.text(stepsCount);
 
