@@ -1,8 +1,17 @@
-=grey-point
-  background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5)
+=point
+  content: ''
+  display: block
   width: 18px
   height: 18px
-  border: 1.5px solid #fff
+  background: $complete_color
+  border-radius: 50%
+  border: 2px solid #fff
+  
+=grey-point
+  background: radial-gradient(#fff 0px, #fff 4.5px, $start_color 4.5px, $start_color)
+  width: 18px
+  height: 18px
+  border: 2px solid #fff
 
 .timeline
   counter-reset: timeline
@@ -16,43 +25,30 @@
   li
     height: 3px
     flex-grow: 1
-    background: #4ea31e
+    background: $complete_color
     position: relative    
     &:before
       counter-increment: timeline
-      content: "Step " counter(timeline)
+      content: attr(data-title) " " counter(timeline)
       position: absolute
       z-index: 1
       bottom: 15px
-      left: 50%
+      left: calc(50% + 11px)
       transform: translateX(-50%)
-      white-space: nowrap    
+      white-space: nowrap     
     &:after
-      content: ''
-      display: block
-      width: 16px
-      height: 16px
-      border-radius: 50%
-      background: #4ea31e
-      border: 1.5px solid #fff
-      position: absolute
-      z-index: 10
       left: 0
-      top: 50%
-      transform: translateY(-50%) translateX(-50%)
-            
+    &:first-child:after
+      left: -0.5px  
   &:after
-    content: ''
-    display: block
-    width: 16px
-    height: 16px
-    border-radius: 50%
-    background: #4ea31e
+    right: -0.5px
+  li:after,
+  &:after
     position: absolute
-    z-index: 10
-    right: 0
     top: 50%
-    transform: translateY(-50%) translateX(50%)
+    transform: translateY(-50%)
+    +point
+
 
   // STATES
   &[data-text-position="down"]
@@ -62,33 +58,21 @@
 
   &[data-progress="start"]
     li
-      background: #e5e5e5
-      &:after
-        background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5)
-        width: 18px
-        height: 18px
-      &.timeline__progress
-        background: #e5e5e5
-        &:after
-          +grey-point
-        & ~ li
-          background: #e5e5e5
-        & ~ li:after
-          +grey-point
+      background: $start_color
+    li:not(:first-child):after,
     &:after
       +grey-point
+    li:first-child:after
+      background: $progress_color
   
   &[data-progress="progress"]
-    li
-      &.timeline__progress
-        background: #f49530   
-        &:after
-          background: #f49530    
-        & ~ li
-          background: #e5e5e5
-          &:after
-            +grey-point
-    &:after
+    li.timeline__progress,
+    li.timeline__progress:after
+      background: $progress_color
+    li.timeline__progress ~ li
+      background: $start_color      
+    &:after,
+    li.timeline__progress ~ li:after
       +grey-point
   
   &[data-view="point"]
@@ -96,24 +80,23 @@
       display: none
     li
       &:before
-        left: 0
+        left: 11px
+      &:last-child
+        flex-grow: 0
+        &:before,
+        &:after
+          left: inherit
+          right: -0.5px
+        &:before
+          transform: translateX(0)
       &:first-child
         &:before
           left: 0
-          transform: translateX(0)
-      &:last-child
-        flex-grow: 0
-        &:before
-          transform: translateX(-100%)
-    &[data-progress="start"]
-      li:last-child:after
-        background: radial-gradient(#fff 0px, #fff 4.5px, #e5e5e5 4.5px, #e5e5e5)
-        width: 18px
-        height: 18px
+          transform: translateX(0)       
     &[data-progress="progress"]
       li
         &.timeline__progress
-          background: #e5e5e5
+          background: $start_color
 
 
   &-control
@@ -135,9 +118,9 @@
       align-items: center
       justify-content: center
       border-radius: 50%
-      border: 1.5px solid #e5e5e5
+      border: 1.5px solid $start_color
       flex-shrink: 0
-      color: #e5e5e5
+      color: $start_color
       font-size: 20px
       cursor: pointer
 

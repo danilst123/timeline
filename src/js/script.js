@@ -20,9 +20,14 @@ $(function () {
       steps = that.find("li"),
       stepsCount = steps.length,
       count = $(".timeline-control__count"),
-      step = "<li></li>";
+      step = "<li></li>",
+      title = that.data("title");
 
     count.text(stepsCount);
+
+    for (let i = 0; i < steps.length; i++) {
+      $(steps[i]).attr("data-title", title);
+    }
 
     $(".timeline-control__view .checkbox__input").click(function (e) {
       e.target.checked
